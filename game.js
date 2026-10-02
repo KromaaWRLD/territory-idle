@@ -153,7 +153,8 @@ function goldRate() {
 }
 
 function troopCap(t) {
-  const base = 80 + t.owner === 0 ? upgrades.capacity.level * 15 : 40;
+  // Fixed operator precedence
+  const base = 80 + (t.owner === 0 ? upgrades.capacity.level * 15 : 40);
   return base + (t.owner === 0 ? upgrades.capacity.level * 20 : 0);
 }
 
