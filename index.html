@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Territory Idle</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>TERRITORY IDLE</h1>
+      <div class="stats">
+        <div class="stat"><span class="label">Troops</span><span id="troopCount">0</span></div>
+        <div class="stat"><span class="label">Land</span><span id="landCount">0</span></div>
+        <div class="stat"><span class="label">Gold</span><span id="goldCount">0</span></div>
+        <div class="stat"><span class="label">Prestige</span><span id="prestigeCount">0</span></div>
+      </div>
+    </header>
+
+    <main>
+      <div id="map-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="tooltip" class="hidden"></div>
+      </div>
+
+      <aside id="sidebar">
+        <section class="panel">
+          <h2>Attack</h2>
+          <label>Send % of troops</label>
+          <input type="range" id="attackPercent" min="10" max="90" value="40" step="5" />
+          <div class="value-display"><span id="attackPercentValue">40</span>%</div>
+          <p class="hint">Select your territory, then click an enemy or neutral to attack.</p>
+        </section>
+
+        <section class="panel">
+          <h2>Upgrades</h2>
+          <div id="upgrades"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Actions</h2>
+          <button id="btnPrestige" class="btn primary" disabled>Prestige (Reset for points)</button>
+          <button id="btnAuto" class="btn">Auto-Attack: OFF</button>
+          <button id="btnSave" class="btn">Force Save</button>
+          <button id="btnReset" class="btn danger">Hard Reset</button>
+        </section>
+
+        <section class="panel log-panel">
+          <h2>Log</h2>
+          <div id="log"></div>
+        </section>
+      </aside>
+    </main>
+
+    <div id="modal" class="hidden">
+      <div class="modal-content">
+        <h2 id="modalTitle">Victory!</h2>
+        <p id="modalText"></p>
+        <button id="modalClose" class="btn primary">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
